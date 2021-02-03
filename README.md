@@ -11,9 +11,8 @@ Here are the supported resources to access the helloworld service :
 mvn clean package k8s:build k8s:resource k8s:helm -Pkubernetes
 
 
-Create a file inside ~/.m2/settings.xml with below configs
+Create a file inside ~/.m2/settings.xml with below config
 
-<pre>
 <servers>
   <server>
     <id>docker.io</id>
@@ -22,4 +21,3 @@ Create a file inside ~/.m2/settings.xml with below configs
   </server>
   <!-- ... -->
 </servers>
-</pre>
