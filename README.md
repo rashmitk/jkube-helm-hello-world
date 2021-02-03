@@ -13,6 +13,7 @@ mvn clean package k8s:build k8s:resource k8s:helm -Pkubernetes
 
 Create a file inside ~/.m2/settings.xml with below configs
 
+<pre>
 <servers>
   <server>
     <id>docker.io</id>
@@ -21,3 +22,4 @@ Create a file inside ~/.m2/settings.xml with below configs
   </server>
   <!-- ... -->
 </servers>
+</pre>
