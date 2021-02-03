@@ -14,12 +14,14 @@
     <name>springboot-hello-world</name>
     <description>Demo project for Spring Boot</description>
 
+
     <properties>
         <java.version>1.8</java.version>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <start-class>com.example.helloworld.HelloWorldBootApplication</start-class>
     </properties>
+
 
     <dependencies>
         <dependency>
@@ -53,4 +55,62 @@
         </plugins>
     </build>
 
+          <profiles>
+    <profile>
+      <id>kubernetes</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.jkube</groupId>
+            <artifactId>kubernetes-maven-plugin</artifactId>
+            <version>1.0.2</version>
+
+            <configuration>
+              <resources>
+                <labels>
+                  <all>
+                    <testProject>spring-boot-with-yaml-label-for-all</testProject>
+                  </all>
+                </labels>
+              </resources>
+              <generator>
+                <config>
+                  <spring-boot>
+                    <color>always</color>
+                  </spring-boot>
+                </config>
+              </generator>
+<!--              <helm>-->
+<!--                <chart>This is a Test</chart>-->
+<!--                <type>kubernetes</type>-->
+<!--                <icon>This is the icon</icon>-->
+<!--                <sources>-->
+<!--                  <source>https://different.source/yaml.yml</source>>-->
+<!--                </sources>-->
+<!--                <maintainers>-->
+<!--                  <maintainer>-->
+<!--                    <name>John</name>-->
+<!--                    <email>john.doe@example.com</email>-->
+<!--                  </maintainer>-->
+<!--                </maintainers>-->
+<!--              </helm>-->
+            </configuration>
+
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>resource</goal>
+                  <goal>build</goal>
+                  <goal>helm</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+        </profiles>
+
 </project>
+

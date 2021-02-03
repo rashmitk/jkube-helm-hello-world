@@ -1,0 +1,4 @@
+annotations:
+  api.service.kubernetes.io/path: /hello
+spec:
+  type: NodePort

@@ -1,0 +1,21 @@
+labels:
+  project: demo
+  hystrix.enabled: true
+  hystrix.cluster: default
+  version: demo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        project: demo
+        hystrix.enabled: true
+        hystrix.cluster: default
+        version: demo
+    spec:
+      containers:
+        - resources:
+            limits:
+              memory: ${limits_memory}
+            requests:
+              memory: ${requests_memory}
